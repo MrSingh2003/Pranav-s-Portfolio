@@ -54,7 +54,7 @@ export function Projects() {
                     <Code className="mr-2 h-4 w-4" /> Code
                   </a>
                 </Button>
-                <Button asChild size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                <Button asChild size="sm">
                   <a href={project.liveHref} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
                   </a>

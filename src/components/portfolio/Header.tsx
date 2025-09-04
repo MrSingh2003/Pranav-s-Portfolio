@@ -15,7 +15,7 @@ export function Header() {
           A passionate developer specializing in Java, Python, and AI/ML, creating modern and responsive web applications.
         </p>
         <div className="mt-8 flex justify-center gap-4 md:justify-start">
-          <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button asChild>
             <a href="#projects">View My Work</a>
           </Button>
           <Button asChild variant="outline">
