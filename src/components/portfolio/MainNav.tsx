@@ -51,7 +51,7 @@ export function MainNav() {
   return (
     <header className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
+        isScrolled ? "bg-background/80 backdrop-blur-lg border-b" : "bg-transparent"
       )}>
       <div className="container mx-auto flex h-20 max-w-6xl items-center justify-between px-4">
         <Link href="#home" className="flex items-center gap-2 text-xl font-bold text-foreground">
@@ -74,7 +74,7 @@ export function MainNav() {
             </Link>
           ))}
         </nav>}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
             <Button asChild>
                 <a href="mailto:pranav@example.com">Hire Me</a>
