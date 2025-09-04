@@ -10,7 +10,7 @@ const aboutPoints = [
   },
   {
     Icon: Server,
-    title: "Java Full Stack Development",
+    title: "Java Full Stack Developer",
     description: "Strong foundation in full-stack Java development, building robust and scalable enterprise-level applications."
   },
   {
