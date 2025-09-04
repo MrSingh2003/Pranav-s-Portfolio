@@ -18,22 +18,32 @@ export function MainNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = navItems.map(item => document.querySelector(item.href));
+      const sections = navItems.map(item => {
+        const el = document.querySelector(item.href);
+        return el;
+      });
+
       let currentSection = "";
-      sections.forEach(section => {
-        if (section && window.scrollY >= section.offsetTop - 150) {
+      
+      for(const section of sections) {
+        if (section && window.scrollY >= (section as HTMLElement).offsetTop - 150) {
           currentSection = section.id;
         }
-      });
+      }
+
       setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   
@@ -47,7 +57,7 @@ export function MainNav() {
           <Code className="h-6 w-6 text-primary"/>
           Pranav
         </Link>
-        <nav className="hidden md:flex items-center space-x-2">
+        {isClient && <nav className="hidden md:flex items-center space-x-2">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -62,7 +72,7 @@ export function MainNav() {
               {item.name}
             </Link>
           ))}
-        </nav>
+        </nav>}
         <div className="hidden md:block">
             <Button asChild>
                 <a href="mailto:pranav@example.com">Hire Me</a>
