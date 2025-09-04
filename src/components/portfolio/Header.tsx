@@ -7,7 +7,7 @@ export function Header() {
     <section id="home" className="relative h-[80vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://picsum.photos/1920/1080"
+          src="/hero-background.jpg"
           alt="Hero background"
           fill
           style={{ objectFit: 'cover' }}

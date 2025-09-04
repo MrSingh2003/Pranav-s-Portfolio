@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -73,7 +74,8 @@ export function MainNav() {
             </Link>
           ))}
         </nav>}
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
             <Button asChild>
                 <a href="mailto:pranav@example.com">Hire Me</a>
             </Button>
@@ -100,6 +102,9 @@ export function MainNav() {
              <Button asChild className="mt-4">
                 <a href="mailto:pranav@example.com">Hire Me</a>
             </Button>
+            <div className="flex justify-center pt-4">
+              <ThemeToggle />
+            </div>
           </nav>
         </div>
       )}
