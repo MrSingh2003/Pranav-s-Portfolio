@@ -9,13 +9,13 @@ const education = [
   },
   {
     institution: "St. Jude's College, Unnao",
-    degree: "Class XII (ISC Board)",
-    period: "2019 - 2021",
+    degree: "Class XII (ISC Board) - 79.9%",
+    period: "2020 - 2021",
   },
   {
     institution: "St. Jude's College, Unnao",
-    degree: "Class X (ICSE Board)",
-    period: "Passing Year - 2019",
+    degree: "Class X (ICSE Board) - 71%",
+    period: "2018 - 2019",
   },
 ];
 
