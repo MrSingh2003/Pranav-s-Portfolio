@@ -22,7 +22,7 @@ export function Header() {
         <div className="relative">
           <Image
             src="https://picsum.photos/200/200"
-            alt="Pranav"
+            alt="Pranav Singh"
             width={200}
             height={200}
             className="rounded-full border-4 border-primary/50 shadow-lg"
