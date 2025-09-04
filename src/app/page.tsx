@@ -19,26 +19,26 @@ export default function Home() {
         <Header />
         <div className="container mx-auto max-w-6xl px-4 py-20 sm:py-28">
           <div className="grid gap-20 md:gap-28">
-            <AnimatedSection>
+            <AnimatedSection animation="slide-in-from-left">
               <About />
             </AnimatedSection>
-            <AnimatedSection>
+            <AnimatedSection animation="slide-in-from-right">
               <Experience />
             </AnimatedSection>
-            <AnimatedSection>
+            <AnimatedSection animation="slide-in-from-left">
               <Projects />
             </AnimatedSection>
-            <AnimatedSection>
+            <AnimatedSection animation="slide-in-from-right">
               <Skills />
             </AnimatedSection>
-            <AnimatedSection>
+            <AnimatedSection animation="slide-in-from-left">
               <Education />
             </AnimatedSection>
-            <AnimatedSection>
+            <AnimatedSection animation="slide-in-from-right">
               <Achievements />
             </AnimatedSection>
             <Separator />
-            <AnimatedSection>
+            <AnimatedSection animation="fade-in-up">
                 <Contact />
             </AnimatedSection>
           </div>

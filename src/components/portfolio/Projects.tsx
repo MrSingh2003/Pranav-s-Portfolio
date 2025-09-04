@@ -31,14 +31,14 @@ export function Projects() {
     <Section id="projects" title="My Projects" Icon={Code}>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project, index) => (
-          <Card key={index} className="flex flex-col overflow-hidden group">
+          <Card key={index} className="flex flex-col overflow-hidden group transition-all duration-300 transform-gpu hover:-translate-y-2 hover:shadow-2xl hover:[transform:rotateX(10deg)_rotateY(10deg)_scale(1.05)]">
              <CardHeader className="p-0 relative h-60">
               <Image
                 src={project.image}
                 alt={project.title}
                 fill
                 style={{objectFit: 'cover'}}
-                className="w-full transition-transform duration-500 group-hover:scale-105"
+                className="w-full transition-transform duration-500 group-hover:scale-110"
                 data-ai-hint={project.aiHint}
               />
                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
