@@ -15,7 +15,7 @@ export function Section({ id, title, Icon, children, className }: SectionProps) 
     <section id={id} className={cn("space-y-8", className)}>
       <div className="flex items-center gap-4">
         <Icon className="h-10 w-10 text-primary" />
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground font-headline">{title}</h2>
+        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground font-headline">{title}</h2>
       </div>
       <div className="pl-14">{children}</div>
     </section>
