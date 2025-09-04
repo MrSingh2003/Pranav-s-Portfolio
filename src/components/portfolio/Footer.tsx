@@ -19,7 +19,7 @@ export function Footer() {
         </p>
         <div className="mt-4 flex space-x-2 sm:mt-0">
           <Button asChild variant="ghost" size="icon">
-            <a href="mailto:pranav@example.com" aria-label="Email">
+            <a href="mailto:pranavsingh812003@gmail.com" aria-label="Email">
               <Mail className="h-5 w-5" />
             </a>
           </Button>
