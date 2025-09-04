@@ -5,36 +5,29 @@ import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  }
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Button 
+      variant="outline" 
+      size="icon" 
+      onClick={toggleTheme}
+      className="relative w-14 h-8 rounded-full p-1 bg-secondary transition-colors duration-500 ease-in-out"
+    >
+      <div className="relative w-full h-full flex items-center justify-between text-yellow-400 dark:text-primary">
+          <Sun className="w-5 h-5" />
+          <Moon className="w-5 h-5" />
+      </div>
+      <div 
+        className="absolute w-6 h-6 bg-white dark:bg-slate-800 rounded-full shadow-md transform transition-transform duration-300 ease-in-out"
+        style={{ left: theme === 'light' ? '4px' : 'calc(100% - 28px)'}}
+      />
+    </Button>
   )
 }
