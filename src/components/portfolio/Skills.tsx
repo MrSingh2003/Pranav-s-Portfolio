@@ -24,6 +24,7 @@ const skills = {
     { name: "GitHub", level: 90 },
     { name: "Microsoft Azure", level: 70 },
     { name: "AWS", level: 65 },
+    { name: "Firebase", level: 75 },
   ],
   "Design": [
     { name: "Figma", level: 80 },
