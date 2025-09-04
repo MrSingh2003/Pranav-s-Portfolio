@@ -1,19 +1,46 @@
+"use client";
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { FileText, ArrowDown } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export function Header() {
+  const { theme } = useTheme();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const lightThemeImage = "https://picsum.photos/1920/1081";
+  const darkThemeImage = "https://picsum.photos/1920/1080";
+  const lightThemeHint = "tree mountain";
+  const darkThemeHint = "stars mountain";
+
+  const getBackgroundImage = () => {
+    if (!isClient) return darkThemeImage; // Default for server-side rendering
+    return theme === "light" ? lightThemeImage : darkThemeImage;
+  };
+  
+  const getAiHint = () => {
+    if (!isClient) return darkThemeHint;
+    return theme === 'light' ? lightThemeHint : darkThemeHint;
+  }
+
   return (
     <section id="home" className="relative h-[80vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://picsum.photos/1920/1080"
+          src={getBackgroundImage()}
           alt="Hero background"
           fill
           style={{ objectFit: 'cover' }}
           className="opacity-20"
-          data-ai-hint="stars background"
+          data-ai-hint={getAiHint()}
           priority
+          key={theme}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
       </div>
