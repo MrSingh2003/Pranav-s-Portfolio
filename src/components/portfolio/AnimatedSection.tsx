@@ -3,13 +3,7 @@
 import { useRef, useEffect, useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-type AnimatedSectionProps = {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-};
-
-export function AnimatedSection({ children, className, delay = 0 }: AnimatedSectionProps) {
+function useIntersectionObserver(delay: number) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -34,9 +28,23 @@ export function AnimatedSection({ children, className, delay = 0 }: AnimatedSect
     observer.observe(element);
 
     return () => {
-      observer.unobserve(element);
+      if (element) {
+        observer.unobserve(element);
+      }
     };
   }, [delay]);
+
+  return { ref, isVisible };
+}
+
+type AnimatedSectionProps = {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+};
+
+export function AnimatedSection({ children, className, delay = 0 }: AnimatedSectionProps) {
+  const { ref, isVisible } = useIntersectionObserver(delay);
 
   return (
     <div
