@@ -55,7 +55,7 @@ export function MainNav() {
       <div className="container mx-auto flex h-20 max-w-6xl items-center justify-between px-4">
         <Link href="#home" className="flex items-center gap-2 text-xl font-bold text-foreground">
           <Code className="h-6 w-6 text-primary"/>
-          Pranav
+          Pranav Singh
         </Link>
         {isClient && <nav className="hidden md:flex items-center space-x-2">
           {navItems.map((item) => (

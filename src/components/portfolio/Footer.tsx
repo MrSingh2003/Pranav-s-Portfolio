@@ -10,14 +10,13 @@ export function Footer() {
 
   useEffect(() => {
     setIsClient(true);
-    setYear(new Date().getFullYear());
   }, []);
 
   return (
     <footer className="bg-card border-t">
       <div className="container mx-auto flex max-w-5xl flex-col items-center justify-between px-4 py-8 sm:flex-row">
         <p className="text-sm text-muted-foreground">
-          &copy; {isClient ? year : new Date().getFullYear()} Pranav. All rights reserved.
+          &copy; {isClient ? year : new Date().getFullYear()} Pranav Singh. All rights reserved.
         </p>
         <div className="mt-4 flex space-x-2 sm:mt-0">
           <Button asChild variant="ghost" size="icon">

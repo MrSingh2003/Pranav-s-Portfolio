@@ -34,10 +34,10 @@ export function Header() {
           </div>
         </div>
         <h1 className="text-5xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl font-headline">
-          Hi, I&apos;m Pranav
+          Hi, I'm Pranav Singh
         </h1>
         <p className="max-w-3xl text-lg text-muted-foreground md:text-xl">
-         I&apos;m a passionate Full-Stack Developer & AI Enthusiast specializing in Java and Python, building modern and responsive web applications.
+         I'm a passionate Full-Stack Developer & AI Enthusiast specializing in Java and Python, building modern and responsive web applications.
         </p>
         <div className="mt-4 flex flex-col sm:flex-row justify-center gap-4 w-full max-w-sm">
           <Button asChild size="lg" className="w-full">
