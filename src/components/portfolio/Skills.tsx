@@ -1,6 +1,10 @@
+"use client";
+
 import { Wrench } from "lucide-react";
 import { Section } from "./Section";
 import { Progress } from "@/components/ui/progress";
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 const skills = {
   "Languages": [
@@ -38,6 +42,46 @@ const skills = {
   ]
 };
 
+const AnimatedProgress = ({ value, name }: { value: number, name: string }) => {
+  const [progress, setProgress] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setProgress(value), 100);
+          if (ref.current) {
+            observer.unobserve(ref.current);
+          }
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [value]);
+
+  return (
+    <div ref={ref} className="space-y-2">
+      <div className="flex justify-between">
+        <span className="font-medium">{name}</span>
+        <span className="text-sm text-muted-foreground">{value}%</span>
+      </div>
+      <Progress value={progress} aria-label={`${name} proficiency`} />
+    </div>
+  );
+};
+
+
 export function Skills() {
   return (
     <Section id="skills" title="My Skills" Icon={Wrench}>
@@ -47,13 +91,7 @@ export function Skills() {
             <h3 className="text-xl font-semibold text-foreground mb-4">{category}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
               {list.map((skill) => (
-                <div key={skill.name} className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                  </div>
-                  <Progress value={skill.level} aria-label={`${skill.name} proficiency`} />
-                </div>
+                <AnimatedProgress key={skill.name} name={skill.name} value={skill.level} />
               ))}
             </div>
           </div>
