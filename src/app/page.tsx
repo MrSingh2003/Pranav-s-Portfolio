@@ -8,18 +8,17 @@ import { Header } from "@/components/portfolio/Header";
 import { MainNav } from "@/components/portfolio/MainNav";
 import { Projects } from "@/components/portfolio/Projects";
 import { Skills } from "@/components/portfolio/Skills";
+import { Contact } from "@/components/portfolio/Contact";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen w-full flex-col">
+    <div className="flex min-h-screen w-full flex-col bg-background">
       <MainNav />
       <main className="flex-1">
-        <div className="container mx-auto max-w-5xl px-4 py-16 sm:py-24">
-          <AnimatedSection>
-            <Header />
-          </AnimatedSection>
-          
-          <div className="mt-20 grid gap-16 md:gap-24">
+        <Header />
+        <div className="container mx-auto max-w-6xl px-4 py-20 sm:py-28">
+          <div className="grid gap-20 md:gap-28">
             <AnimatedSection>
               <About />
             </AnimatedSection>
@@ -30,13 +29,17 @@ export default function Home() {
               <Projects />
             </AnimatedSection>
             <AnimatedSection>
-              <Education />
-            </AnimatedSection>
-            <AnimatedSection>
               <Skills />
             </AnimatedSection>
             <AnimatedSection>
+              <Education />
+            </AnimatedSection>
+            <AnimatedSection>
               <Achievements />
+            </AnimatedSection>
+            <Separator />
+            <AnimatedSection>
+                <Contact />
             </AnimatedSection>
           </div>
         </div>

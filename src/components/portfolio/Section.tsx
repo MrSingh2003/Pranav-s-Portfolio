@@ -13,11 +13,11 @@ type SectionProps = {
 export function Section({ id, title, Icon, children, className }: SectionProps) {
   return (
     <section id={id} className={cn("space-y-8", className)}>
-      <div className="flex items-center gap-3">
-        <Icon className="h-8 w-8 text-primary" />
-        <h2 className="text-3xl font-bold tracking-tight text-foreground">{title}</h2>
+      <div className="flex items-center gap-4">
+        <Icon className="h-10 w-10 text-primary" />
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground font-headline">{title}</h2>
       </div>
-      {children}
+      <div className="pl-14">{children}</div>
     </section>
   );
 }

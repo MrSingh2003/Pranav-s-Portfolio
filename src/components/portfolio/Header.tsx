@@ -1,66 +1,62 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Code, FileText } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { FileText, ArrowDown } from "lucide-react";
 
 export function Header() {
   return (
-    <section id="home" className="flex flex-col-reverse items-center gap-8 text-center md:flex-row md:text-left md:gap-12">
-      <div className="flex-1">
-        <Badge variant="outline" className="mb-4 border-primary text-primary">Full-Stack Developer & AI Enthusiast</Badge>
-        <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-          Pranav
+    <section id="home" className="relative h-[80vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://picsum.photos/1920/1080"
+          alt="Hero background"
+          fill
+          style={{ objectFit: 'cover' }}
+          className="opacity-20"
+          data-ai-hint="abstract background"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center gap-6 px-4">
+        <div className="relative">
+          <Image
+            src="https://picsum.photos/200/200"
+            alt="Pranav"
+            width={200}
+            height={200}
+            className="rounded-full border-4 border-primary/50 shadow-lg"
+            data-ai-hint="profile picture"
+            priority
+          />
+           <div className="absolute -bottom-2 -right-2 text-4xl animate-wave">
+            👋
+          </div>
+        </div>
+        <h1 className="text-5xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl font-headline">
+          Hi, I&apos;m Pranav
         </h1>
-        <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-          A passionate developer specializing in Java, Python, and AI/ML, creating modern and responsive web applications.
+        <p className="max-w-3xl text-lg text-muted-foreground md:text-xl">
+         I&apos;m a passionate Full-Stack Developer & AI Enthusiast specializing in Java and Python, building modern and responsive web applications.
         </p>
-        <div className="mt-8 flex justify-center gap-4 md:justify-start">
-          <Button asChild>
+        <div className="mt-4 flex flex-col sm:flex-row justify-center gap-4 w-full max-w-sm">
+          <Button asChild size="lg" className="w-full">
             <a href="#projects">View My Work</a>
           </Button>
-          <Button asChild variant="outline">
+          <Button asChild variant="outline" size="lg" className="w-full">
             <a href="#" download>
-              <FileText className="mr-2 h-4 w-4"/>
+              <FileText className="mr-2 h-5 w-5"/>
               Download CV
             </a>
           </Button>
         </div>
-        <div className="mt-8 flex justify-center space-x-2 md:justify-start">
-            <Button asChild variant="ghost" size="icon">
-              <a href="mailto:pranav@example.com" aria-label="Email">
-                <Mail className="h-5 w-5" />
-              </a>
-            </Button>
-            <Button asChild variant="ghost" size="icon">
-              <a href="https://linkedin.com/in/pranav" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </Button>
-            <Button asChild variant="ghost" size="icon">
-              <a href="https://github.com/pranav" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github className="h-5 w-5" />
-              </a>
-            </Button>
-             <Button asChild variant="ghost" size="icon">
-              <a href="https://leetcode.com/pranav" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
-                <Code className="h-5 w-5" />
-              </a>
-            </Button>
-        </div>
       </div>
-      <div className="relative shrink-0">
-        <Image
-          src="https://picsum.photos/280/280"
-          alt="Pranav"
-          width={280}
-          height={280}
-          className="rounded-full border-4 border-primary/50 shadow-lg"
-          data-ai-hint="profile picture"
-          priority
-        />
-        <div className="absolute bottom-4 right-4 h-8 w-8 rounded-full bg-background flex items-center justify-center text-xl shadow-md">
-            👋
-        </div>
+       <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+        <a href="#about" aria-label="Scroll down">
+            <div className="h-12 w-7 rounded-full border-2 border-muted-foreground flex items-start justify-center p-1">
+                <ArrowDown className="h-5 w-5 text-muted-foreground animate-bounce" />
+            </div>
+        </a>
       </div>
     </section>
   );

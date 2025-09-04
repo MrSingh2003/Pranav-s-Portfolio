@@ -12,7 +12,8 @@ const projects = [
     image: "https://picsum.photos/600/400",
     tags: ["AI/ML", "Java", "React", "Azure"],
     liveHref: "#",
-    codeHref: "#"
+    codeHref: "#",
+    aiHint: "travel map"
   },
   {
     title: "E-Commerce Web Application",
@@ -20,27 +21,29 @@ const projects = [
     image: "https://picsum.photos/601/400",
     tags: ["Full-Stack", "Spring Boot", "Next.js", "SQL"],
     liveHref: "#",
-    codeHref: "#"
+    codeHref: "#",
+    aiHint: "online store"
   }
 ];
 
 export function Projects() {
   return (
-    <Section id="projects" title="Projects" Icon={Code}>
+    <Section id="projects" title="My Projects" Icon={Code}>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project, index) => (
-          <Card key={index} className="flex flex-col overflow-hidden transition-transform transform hover:-translate-y-1 hover:shadow-xl">
-            <CardHeader className="p-0">
+          <Card key={index} className="flex flex-col overflow-hidden group">
+             <CardHeader className="p-0 relative h-60">
               <Image
                 src={project.image}
                 alt={project.title}
-                width={600}
-                height={400}
-                className="w-full object-cover"
-                data-ai-hint="application screenshot"
+                fill
+                style={{objectFit: 'cover'}}
+                className="w-full transition-transform duration-500 group-hover:scale-105"
+                data-ai-hint={project.aiHint}
               />
+               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             </CardHeader>
-            <div className="flex flex-1 flex-col p-6">
+            <div className="flex flex-1 flex-col p-6 bg-card">
               <CardTitle className="mb-2">{project.title}</CardTitle>
               <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
