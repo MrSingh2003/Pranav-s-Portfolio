@@ -7,12 +7,12 @@ export function Header() {
     <section id="home" className="relative h-[80vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero-background.jpg"
+          src="https://picsum.photos/1920/1080"
           alt="Hero background"
           fill
           style={{ objectFit: 'cover' }}
           className="opacity-20"
-          data-ai-hint="abstract background"
+          data-ai-hint="stars background"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
