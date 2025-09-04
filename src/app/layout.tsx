@@ -15,7 +15,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Pranav Singh's Portfolio",
   description:
-    "A creative and professional portfolio for Pranav, showcasing skills, projects, and experience.",
+    "Creative Full-Stack Developer & AI Enthusiast specializing in crafting modern, responsive web applications.",
 };
 
 export default function RootLayout({

@@ -5,11 +5,15 @@ import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
 
 export function Footer() {
-  const [year, setYear] = useState(new Date().getFullYear());
+  const [year, setYear] = useState<number | null>(null);
   
   useEffect(() => {
     setYear(new Date().getFullYear());
   }, []);
+
+  if (year === null) {
+    return null;
+  }
 
   return (
     <footer className="bg-card border-t">
@@ -19,7 +23,7 @@ export function Footer() {
         </p>
         <div className="mt-4 flex space-x-2 sm:mt-0">
           <Button asChild variant="ghost" size="icon">
-            <a href="mailto:pranavsingh812003@gmail.com" aria-label="Email">
+            <a href="mailto:pranavsingh703@gmail.com" aria-label="Email">
               <Mail className="h-5 w-5" />
             </a>
           </Button>

@@ -77,7 +77,7 @@ export function MainNav() {
         <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
             <Button asChild>
-                <a href="mailto:pranavsingh812003@gmail.com">Hire Me</a>
+                <a href="mailto:pranavsingh703@gmail.com">Hire Me</a>
             </Button>
         </div>
         <div className="md:hidden">
@@ -100,7 +100,7 @@ export function MainNav() {
               </Link>
             ))}
              <Button asChild className="mt-4">
-                <a href="mailto:pranavsingh812003@gmail.com">Hire Me</a>
+                <a href="mailto:pranavsingh703@gmail.com">Hire Me</a>
             </Button>
             <div className="flex justify-center pt-4">
               <ThemeToggle />
