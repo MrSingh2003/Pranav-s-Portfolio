@@ -4,10 +4,10 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 240 10% 97%;
     --foreground: 222.2 84% 4.9%;
 
-    --card: 0 0% 100%;
+    --card: 240 10% 100%;
     --card-foreground: 222.2 84% 4.9%;
  
     --popover: 0 0% 100%;
@@ -72,5 +72,8 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .dark body {
+    background-image: radial-gradient(circle at 50% 0, hsl(var(--primary) / 0.1), transparent 50%);
   }
 }
