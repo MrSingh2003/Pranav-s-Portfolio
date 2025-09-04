@@ -14,8 +14,8 @@ export function Header() {
     setIsClient(true);
   }, []);
 
-  const lightThemeImage = "https://picsum.photos/1920/1081";
-  const darkThemeImage = "https://picsum.photos/1920/1080";
+  const lightThemeImage = "https://picsum.photos/1920/1082";
+  const darkThemeImage = "https://picsum.photos/1920/1081";
   const lightThemeHint = "tree mountain";
   const darkThemeHint = "stars mountain";
 
@@ -78,7 +78,7 @@ export function Header() {
           </Button>
         </div>
       </div>
-       <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+       <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
         <a href="#about" aria-label="Scroll down">
             <div className="h-12 w-7 rounded-full border-2 border-muted-foreground flex items-start justify-center p-1">
                 <ArrowDown className="h-5 w-5 text-muted-foreground animate-bounce" />
