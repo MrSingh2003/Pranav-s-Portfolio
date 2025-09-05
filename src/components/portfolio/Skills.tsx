@@ -1,9 +1,10 @@
 "use client";
 
 import { Wrench } from "lucide-react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { Section } from "./Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { useEffect, useState } from "react";
 
 const skillsData = {
   "Languages": [
@@ -36,40 +37,43 @@ const skillsData = {
   ],
 };
 
-const CustomTooltip = ({ active, payload, label }: any) => {
-  if (active && payload && payload.length) {
+
+function SkillCategory({ category, skills }: { category: string, skills: {name: string, level: number}[] }) {
+    const [progress, setProgress] = useState(0);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setProgress(100), 500);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
-      <div className="rounded-lg border bg-background/80 p-2 shadow-lg backdrop-blur-sm">
-        <p className="font-bold text-foreground">{`${label} : ${payload[0].value}%`}</p>
-      </div>
+        <Card className="bg-card/50 backdrop-blur-sm">
+            <CardHeader>
+                <CardTitle className="text-xl">{category}</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <div className="space-y-6">
+                    {skills.map(skill => (
+                        <div key={skill.name} className="space-y-2">
+                            <div className="flex justify-between items-center">
+                                <span className="font-medium text-muted-foreground">{skill.name}</span>
+                                <span className="text-sm font-semibold text-primary">{skill.level}%</span>
+                            </div>
+                            <Progress value={progress > 0 ? skill.level : 0} />
+                        </div>
+                    ))}
+                </div>
+            </CardContent>
+        </Card>
     );
-  }
-  return null;
-};
+}
 
 export function Skills() {
   return (
     <Section id="skills" title="My Skills" Icon={Wrench}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {Object.entries(skillsData).map(([category, skills]) => (
-          <Card key={category} className="bg-card/50 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-xl">{category}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="h-64 w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={skills} layout="vertical" margin={{ top: 5, right: 20, left: 40, bottom: 5 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border) / 0.5)" />
-                    <XAxis type="number" domain={[0, 100]} hide />
-                    <YAxis dataKey="name" type="category" width={80} tickLine={false} axisLine={false} tick={{ fill: 'hsl(var(--muted-foreground))' }} />
-                    <Tooltip content={<CustomTooltip />} cursor={{fill: 'hsl(var(--primary) / 0.1)'}} />
-                    <Bar dataKey="level" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} background={{ fill: 'hsl(var(--secondary))', radius: 4 }} />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            </CardContent>
-          </Card>
+          <SkillCategory key={category} category={category} skills={skills} />
         ))}
       </div>
     </Section>
