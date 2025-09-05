@@ -88,7 +88,7 @@
 }
 
 .embla__slide {
-  flex: 0 0 90%; /* On mobile, show 90% of one slide */
+  flex: 0 0 80%; /* On mobile, show 80% of one slide */
   min-width: 0;
   padding-left: 1rem;
   position: relative;
@@ -100,13 +100,13 @@
 
 @media (min-width: 640px) { /* sm breakpoint */
   .embla__slide {
-    flex-basis: 50%;
+    flex-basis: 40%;
   }
 }
 
 @media (min-width: 1024px) { /* lg breakpoint */
   .embla__slide {
-    flex-basis: 33.333333%;
+    flex-basis: 33.3333%;
   }
 }
 
