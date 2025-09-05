@@ -80,14 +80,11 @@
 }
 
 .embla {
-  perspective: 1000px;
+  overflow: visible; /* Allows slides to pop out */
 }
 
 .embla__container {
-  backface-visibility: hidden;
   display: flex;
-  touch-action: pan-y;
-  margin-left: -1rem;
 }
 
 .embla__slide {
@@ -95,14 +92,13 @@
   min-width: 0;
   padding-left: 1rem;
   position: relative;
-  transition: transform 500ms ease;
-  transform-style: preserve-3d;
-}
-
-.embla__slide__inner {
-  position: relative;
-}
-
-.embla__slide:not(.is-selected) {
+  
+  opacity: 0.4;
   transform: scale(0.85);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.embla__slide.is-selected {
+  opacity: 1;
+  transform: scale(1);
 }

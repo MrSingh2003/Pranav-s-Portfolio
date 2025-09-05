@@ -47,10 +47,10 @@ export function Projects() {
     <Section id="projects" title="My Projects" Icon={Code}>
       <Carousel
         opts={{
-          align: "start",
+          align: "center",
           loop: true,
         }}
-        className="w-full"
+        className="w-full max-w-4xl mx-auto"
       >
         <CarouselContent className="-ml-1">
           {projects.map((project, index) => (
@@ -65,6 +65,7 @@ export function Projects() {
                       style={{objectFit: 'cover'}}
                       className="w-full"
                       data-ai-hint={project.aiHint}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   </CardHeader>
@@ -94,8 +95,8 @@ export function Projects() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="left-[-50px]" />
+        <CarouselNext className="right-[-50px]" />
       </Carousel>
     </Section>
   );
