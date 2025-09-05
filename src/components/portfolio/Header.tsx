@@ -71,14 +71,14 @@ export function Header() {
             <a href="#projects">View My Work</a>
           </Button>
           <Button asChild variant="outline" size="lg" className="w-full">
-            <a href="#" download>
+            <a href="https://drive.google.com/drive/folders/1fi9HuzgsMN8FZY1mQuH4KCSGvhwLx7zQ?dmr=1&ec=wgc-drive-hero-goto" target="_blank" rel="noopener noreferrer">
               <FileText className="mr-2 h-5 w-5"/>
               My Resume
             </a>
           </Button>
         </div>
       </div>
-       <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
+       <div className="absolute bottom-20 left-1/2 -translate-x-1/2">
         <a href="#about" aria-label="Scroll down">
             <div className="h-12 w-7 rounded-full border-2 border-muted-foreground flex items-start justify-center p-1">
                 <ArrowDown className="h-5 w-5 text-muted-foreground animate-bounce" />
