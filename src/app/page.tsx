@@ -23,16 +23,16 @@ export default function Home() {
               <About />
             </AnimatedSection>
             <AnimatedSection animation="slide-in-from-right">
+              <Education />
+            </AnimatedSection>
+            <AnimatedSection animation="slide-in-from-left">
               <Experience />
             </AnimatedSection>
-            <AnimatedSection animation="slide-in-from-left">
+            <AnimatedSection animation="slide-in-from-right">
               <Projects />
             </AnimatedSection>
-            <AnimatedSection animation="slide-in-from-right">
-              <Skills />
-            </AnimatedSection>
             <AnimatedSection animation="slide-in-from-left">
-              <Education />
+              <Skills />
             </AnimatedSection>
             <AnimatedSection animation="slide-in-from-right">
               <Achievements />
