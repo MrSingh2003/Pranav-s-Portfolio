@@ -71,7 +71,7 @@ export function Header() {
             <a href="#projects">View My Work</a>
           </Button>
           <Button asChild variant="outline" size="lg" className="w-full">
-            <a href="https://docs.google.com/document/d/13jn3yVk_qrQsiwXOB_Eytd2PkptYXn2k/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <a href="https://drive.google.com/file/d/1kL6UhvJbTCWjKH4Y8w8naO3BkUmChmO3/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
               <FileText className="mr-2 h-5 w-5"/>
               My Resume
             </a>
