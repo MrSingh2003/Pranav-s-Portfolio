@@ -104,7 +104,7 @@
   }
 }
 
-@media (min-width: 768px) { /* md breakpoint */
+@media (min-width: 1024px) { /* lg breakpoint */
   .embla__slide {
     flex-basis: 33.333333%;
   }

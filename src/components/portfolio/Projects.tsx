@@ -50,11 +50,11 @@ export function Projects() {
           align: "center",
           loop: true,
         }}
-        className="w-full max-w-5xl mx-auto"
+        className="w-full"
       >
-        <CarouselContent className="-ml-1">
+        <CarouselContent className="-ml-1 embla__container">
           {projects.map((project, index) => (
-            <CarouselItem key={index} className="pl-1 sm:basis-1/2 md:basis-1/3 lg:basis-1/3">
+            <CarouselItem key={index} className="pl-1 embla__slide">
                <div className="p-1">
                 <Card className="flex flex-col overflow-hidden h-full project-card">
                    <CardHeader className="p-0 relative h-60">
