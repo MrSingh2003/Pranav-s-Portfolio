@@ -12,7 +12,7 @@ const projects = [
     description: "My personal portfolio website built with Next.js and Tailwind CSS to showcase my skills, projects, and experience.",
     image: "https://picsum.photos/602/400",
     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-    liveHref: "#home",
+    liveHref: "https://pranav-s-portfolio.vercel.app/",
     codeHref: "https://github.com/MrSingh2003/Pranav-s-Portfolio.git",
     aiHint: "portfolio website",
     isFeatured: true,
