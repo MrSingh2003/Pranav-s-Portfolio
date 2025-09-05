@@ -33,7 +33,7 @@ export function Footer() {
             </a>
           </Button>
           <Button asChild variant="ghost" size="icon">
-            <a href="https://github.com/pranav" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/MrSingh2003" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <Github className="h-5 w-5" />
             </a>
           </Button>
