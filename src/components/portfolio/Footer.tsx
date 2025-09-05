@@ -38,7 +38,7 @@ export function Footer() {
             </a>
           </Button>
             <Button asChild variant="ghost" size="icon">
-            <a href="https://leetcode.com/pranav" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
+            <a href="https://leetcode.com/u/Pranav703/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
               <Code className="h-5 w-5" />
             </a>
           </Button>
