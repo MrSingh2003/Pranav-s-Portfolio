@@ -9,6 +9,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
   { name: "About", href: "#about" },
+  { name: "Education", href: "#education" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
@@ -58,28 +59,32 @@ export function MainNav() {
           <Code className="h-6 w-6 text-primary"/>
           Pranav Singh
         </Link>
-        {isClient && <nav className="hidden md:flex items-center space-x-2">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={cn(
-                "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
-                activeSection === item.href.substring(1)
-                  ? "text-primary bg-primary/10"
-                  : "text-muted-foreground"
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>}
-        <div className="hidden md:flex items-center gap-4">
-            <ThemeToggle />
-            <Button asChild>
-                <a href="mailto:pranavsingh703@gmail.com">Hire Me</a>
-            </Button>
-        </div>
+        {isClient && (
+          <div className="flex items-center gap-2">
+            <nav className="hidden md:flex items-center space-x-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary",
+                    activeSection === item.href.substring(1)
+                      ? "text-primary bg-primary/10"
+                      : "text-muted-foreground"
+                  )}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+            <div className="hidden md:flex items-center gap-4 ml-4">
+                <ThemeToggle />
+                <Button asChild>
+                    <a href="mailto:pranavsingh703@gmail.com">Hire Me</a>
+                </Button>
+            </div>
+          </div>
+        )}
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
           <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
