@@ -4,6 +4,13 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Section } from "./Section";
 import { Badge } from "@/components/ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const projects = [
   {
@@ -38,44 +45,58 @@ const projects = [
 export function Projects() {
   return (
     <Section id="projects" title="My Projects" Icon={Code}>
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-        {projects.map((project, index) => (
-          <Card key={index} className="flex flex-col overflow-hidden group transition-all duration-300 transform-gpu hover:-translate-y-2 hover:shadow-2xl hover:[transform:rotateX(10deg)_rotateY(10deg)_scale(1.05)]">
-             <CardHeader className="p-0 relative h-60">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                style={{objectFit: 'cover'}}
-                className="w-full transition-transform duration-500 group-hover:scale-110"
-                data-ai-hint={project.aiHint}
-              />
-               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            </CardHeader>
-            <div className="flex flex-1 flex-col p-6 bg-card">
-              <CardTitle className="mb-2">{project.title}</CardTitle>
-              <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        className="w-full"
+      >
+        <CarouselContent className="-ml-1">
+          {projects.map((project, index) => (
+            <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
+               <div className="p-1">
+                <Card className="flex flex-col overflow-hidden h-full">
+                   <CardHeader className="p-0 relative h-60">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      style={{objectFit: 'cover'}}
+                      className="w-full"
+                      data-ai-hint={project.aiHint}
+                    />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  </CardHeader>
+                  <div className="flex flex-1 flex-col p-6 bg-card">
+                    <CardTitle className="mb-2">{project.title}</CardTitle>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+                    </div>
+                    <CardContent className="flex-1 p-0 text-muted-foreground">
+                      <p>{project.description}</p>
+                    </CardContent>
+                    <CardFooter className="p-0 pt-6 justify-end space-x-2">
+                      <Button asChild variant="ghost" size="sm">
+                        <a href={project.codeHref} target="_blank" rel="noopener noreferrer">
+                          <Code className="mr-2 h-4 w-4" /> Code
+                        </a>
+                      </Button>
+                      <Button asChild size="sm">
+                        <a href={project.liveHref} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                        </a>
+                      </Button>
+                    </CardFooter>
+                  </div>
+                </Card>
               </div>
-              <CardContent className="flex-1 p-0 text-muted-foreground">
-                <p>{project.description}</p>
-              </CardContent>
-              <CardFooter className="p-0 pt-6 justify-end space-x-2">
-                <Button asChild variant="ghost" size="sm">
-                  <a href={project.codeHref} target="_blank" rel="noopener noreferrer">
-                    <Code className="mr-2 h-4 w-4" /> Code
-                  </a>
-                </Button>
-                <Button asChild size="sm">
-                  <a href={project.liveHref} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                  </a>
-                </Button>
-              </CardFooter>
-            </div>
-          </Card>
-        ))}
-      </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </Section>
   );
 }
