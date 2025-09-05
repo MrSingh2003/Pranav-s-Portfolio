@@ -79,59 +79,23 @@
   }
 }
 
-.embla {
-  overflow: visible; /* Allows slides to pop out */
+.project-card-wrapper .project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
-.embla__container {
-  display: flex;
-}
-
-.embla__slide {
-  flex: 0 0 90%; /* On mobile, show 90% of one slide */
-  min-width: 0;
-  padding-left: 1rem;
-  position: relative;
-  
-  opacity: 0.4;
-  transform: scale(0.85);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-@media (min-width: 640px) { /* sm breakpoint */
-  .embla__slide {
-    flex-basis: 50%;
-  }
-}
-
-@media (min-width: 1024px) { /* lg breakpoint */
-  .embla__slide {
-    flex-basis: 45%;
-  }
-}
-
-
-.embla__slide.is-selected {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.embla__slide.is-selected .project-card {
+.project-card-wrapper.is-featured .project-card {
   @apply shadow-2xl shadow-primary/40;
+  transform: scale(1.05);
 }
 
-/* When the container is hovered, de-emphasize all slides */
-.embla__container:hover .embla__slide {
-  opacity: 0.3;
-}
-.embla__container:hover .embla__slide .project-card {
+.project-grid:hover .project-card-wrapper:not(:hover):not(.is-featured) .project-card {
+  transform: scale(0.95);
+  opacity: 0.7;
   @apply shadow-none;
 }
 
-/* Re-emphasize the slide that is directly hovered */
-.embla__container:hover .embla__slide:hover {
-  opacity: 1;
-}
-.embla__container:hover .embla__slide:hover .project-card {
-  @apply shadow-2xl shadow-primary/40;
+.project-grid:hover .project-card-wrapper:hover .project-card {
+   @apply shadow-2xl shadow-primary/40;
+   transform: scale(1.05);
+   opacity: 1;
 }

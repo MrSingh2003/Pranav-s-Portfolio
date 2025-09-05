@@ -175,12 +175,11 @@ const CarouselContent = React.forwardRef<
   }, [api]);
 
   return (
-    <div ref={carouselRef} className="overflow-hidden embla">
+    <div ref={carouselRef} className="overflow-hidden">
       <div
         ref={ref}
         className={cn(
           "flex",
-          "embla__container",
           orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
           className
         )}
@@ -227,8 +226,7 @@ const CarouselItem = React.forwardRef<
       role="group"
       aria-roledescription="slide"
       className={cn(
-        "min-w-0 shrink-0 grow-0 basis-full embla__slide",
-        isSelected && "is-selected",
+        "min-w-0 shrink-0 grow-0 basis-full",
         className
       )}
       {...props}

@@ -4,13 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Section } from "./Section";
 import { Badge } from "@/components/ui/badge";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 
 const projects = [
   {
@@ -20,7 +14,8 @@ const projects = [
     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     liveHref: "#home",
     codeHref: "https://github.com/MrSingh2003",
-    aiHint: "portfolio website"
+    aiHint: "portfolio website",
+    isFeatured: true,
   },
   {
     title: "Smart India Traveler",
@@ -29,7 +24,7 @@ const projects = [
     tags: ["AI/ML", "Java", "React", "Azure"],
     liveHref: "#",
     codeHref: "#",
-    aiHint: "travel map"
+    aiHint: "travel map",
   },
   {
     title: "E-Commerce Web Application",
@@ -38,66 +33,54 @@ const projects = [
     tags: ["Full-Stack", "Spring Boot", "Next.js", "SQL"],
     liveHref: "#",
     codeHref: "#",
-    aiHint: "online store"
+    aiHint: "online store",
   },
 ];
 
 export function Projects() {
   return (
     <Section id="projects" title="My Projects" Icon={Code}>
-      <Carousel
-        opts={{
-          align: "center",
-          loop: true,
-        }}
-        className="w-full"
-      >
-        <CarouselContent className="-ml-1 embla__container">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 project-grid">
           {projects.map((project, index) => (
-            <CarouselItem key={index} className="pl-1 embla__slide">
-               <div className="p-1">
-                <Card className="flex flex-col overflow-hidden h-full project-card">
-                   <CardHeader className="p-0 relative h-60">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      style={{objectFit: 'cover'}}
-                      className="w-full"
-                      data-ai-hint={project.aiHint}
-                      sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  </CardHeader>
-                  <div className="flex flex-1 flex-col p-6 bg-card">
-                    <CardTitle className="mb-2">{project.title}</CardTitle>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
-                    </div>
-                    <CardContent className="flex-1 p-0 text-muted-foreground">
-                      <p>{project.description}</p>
-                    </CardContent>
-                    <CardFooter className="p-0 pt-6 justify-end space-x-2">
-                      <Button asChild variant="ghost" size="sm">
-                        <a href={project.codeHref} target="_blank" rel="noopener noreferrer">
-                          <Code className="mr-2 h-4 w-4" /> Code
-                        </a>
-                      </Button>
-                      <Button asChild size="sm">
-                        <a href={project.liveHref} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                        </a>
-                      </Button>
-                    </CardFooter>
+             <div key={index} className={cn("project-card-wrapper", project.isFeatured && "is-featured")}>
+              <Card className="flex flex-col overflow-hidden h-full project-card">
+                 <CardHeader className="p-0 relative h-60">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    style={{objectFit: 'cover'}}
+                    className="w-full"
+                    data-ai-hint={project.aiHint}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </CardHeader>
+                <div className="flex flex-1 flex-col p-6 bg-card">
+                  <CardTitle className="mb-2">{project.title}</CardTitle>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
                   </div>
-                </Card>
-              </div>
-            </CarouselItem>
+                  <CardContent className="flex-1 p-0 text-muted-foreground">
+                    <p>{project.description}</p>
+                  </CardContent>
+                  <CardFooter className="p-0 pt-6 justify-end space-x-2">
+                    <Button asChild variant="ghost" size="sm">
+                      <a href={project.codeHref} target="_blank" rel="noopener noreferrer">
+                        <Code className="mr-2 h-4 w-4" /> Code
+                      </a>
+                    </Button>
+                    <Button asChild size="sm">
+                      <a href={project.liveHref} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                      </a>
+                    </Button>
+                  </CardFooter>
+                </div>
+              </Card>
+            </div>
           ))}
-        </CarouselContent>
-        <CarouselPrevious className="left-[-50px] hidden sm:inline-flex" />
-        <CarouselNext className="right-[-50px] hidden sm:inline-flex" />
-      </Carousel>
+      </div>
     </Section>
   );
 }
