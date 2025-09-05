@@ -48,7 +48,7 @@ export function Header() {
       <div className="relative z-10 flex flex-col items-center gap-6 px-4">
         <div className="relative">
           <Image
-            src="/pranav.jpg?v=2"
+            src="/pranav.jpg?v=3"
             alt="Pranav Singh"
             width={200}
             height={200}
@@ -78,7 +78,7 @@ export function Header() {
           </Button>
         </div>
       </div>
-       <div className="absolute bottom-[-60px] left-1/2 -translate-x-1/2">
+       <div className="absolute bottom-[-130px] left-1/2 -translate-x-1/2">
         <a href="#about" aria-label="Scroll down">
             <div className="h-12 w-7 rounded-full border-2 border-muted-foreground flex items-start justify-center p-1">
                 <ArrowDown className="h-5 w-5 text-muted-foreground animate-bounce" />
