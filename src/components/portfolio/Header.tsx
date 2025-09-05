@@ -52,7 +52,7 @@ export function Header() {
             alt="Pranav Singh"
             width={120}
             height={120}
-            className="rounded-full border-4 border-primary/50 shadow-lg sm:w-[150px] sm:h-[150px]"
+            className="rounded-full border-4 border-primary/50 shadow-lg w-[120px] h-[120px] sm:w-[150px] sm:h-[150px]"
             data-ai-hint="profile picture"
             priority
           />
