@@ -48,7 +48,7 @@ export function Header() {
       <div className="relative z-10 flex flex-col items-center gap-4 px-4 sm:gap-6">
         <div className="relative">
           <Image
-            src="/pranav.jpg?v=3"
+            src="/pranav.jpg"
             alt="Pranav Singh"
             width={120}
             height={120}
