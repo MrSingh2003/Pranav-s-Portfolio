@@ -28,7 +28,6 @@ type CarouselContextProps = {
   scrollNext: () => void
   canScrollPrev: boolean
   canScrollNext: boolean
-  selectedIndex: number
 } & CarouselProps
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null)
@@ -68,13 +67,12 @@ const Carousel = React.forwardRef<
     )
     const [canScrollPrev, setCanScrollPrev] = React.useState(false)
     const [canScrollNext, setCanScrollNext] = React.useState(false)
-    const [selectedIndex, setSelectedIndex] = React.useState(0)
 
     const onSelect = React.useCallback((api: CarouselApi) => {
       if (!api) {
         return
       }
-      setSelectedIndex(api.selectedScrollSnap())
+
       setCanScrollPrev(api.canScrollPrev())
       setCanScrollNext(api.canScrollNext())
     }, [])
@@ -134,7 +132,6 @@ const Carousel = React.forwardRef<
           scrollNext,
           canScrollPrev,
           canScrollNext,
-          selectedIndex,
         }}
       >
         <div
@@ -157,7 +154,26 @@ const CarouselContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
-  const { carouselRef, orientation } = useCarousel()
+  const { carouselRef, orientation, api } = useCarousel();
+
+  React.useEffect(() => {
+    if (!api) return;
+
+    const onScroll = () => {
+      // Accessing private/undocumented properties, might break
+      const engine = (api.internalEngine)();
+      engine.scrollBody.useFriction(0.3); // Less friction, feels "looser"
+      engine.scrollBody.useMass(1);
+    };
+    
+    api.on("scroll", onScroll);
+    onScroll(); // Apply initially
+
+    return () => {
+      api.off("scroll", onScroll);
+    };
+
+  }, [api]);
 
   return (
     <div ref={carouselRef} className="overflow-hidden embla">
@@ -178,10 +194,31 @@ CarouselContent.displayName = "CarouselContent"
 
 const CarouselItem = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { index: number }
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
-  const { orientation, selectedIndex } = useCarousel()
-  const isSelected = selectedIndex === props.index;
+  const { api } = useCarousel()
+  const [isSelected, setIsSelected] = React.useState(false);
+
+  const updateSelection = React.useCallback(() => {
+     if (!api) return;
+     // This seems brittle. CarouselItem doesn't have an index prop.
+     // We need to find the DOM element and get its index.
+     const slideNodes = api.slideNodes();
+     const selfNode = (ref as React.RefObject<HTMLDivElement>).current;
+     if (!selfNode) return;
+     const myIndex = slideNodes.indexOf(selfNode);
+     setIsSelected(api.selectedScrollSnap() === myIndex);
+  }, [api, ref]);
+
+  React.useEffect(() => {
+    if (!api) return;
+    api.on("select", updateSelection);
+    updateSelection(); // initial check
+    return () => {
+      api.off("select", updateSelection);
+    }
+  }, [api, updateSelection]);
+
 
   return (
     <div
@@ -191,7 +228,6 @@ const CarouselItem = React.forwardRef<
       className={cn(
         "min-w-0 shrink-0 grow-0 basis-full embla__slide",
         isSelected && "is-selected",
-        orientation === "horizontal" ? "pl-4" : "pt-4",
         className
       )}
       {...props}

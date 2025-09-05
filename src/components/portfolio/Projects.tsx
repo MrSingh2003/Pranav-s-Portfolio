@@ -56,7 +56,7 @@ export function Projects() {
           {projects.map((project, index) => (
             <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
                <div className="p-1">
-                <Card className="flex flex-col overflow-hidden h-full">
+                <Card className="flex flex-col overflow-hidden h-full project-card">
                    <CardHeader className="p-0 relative h-60">
                     <Image
                       src={project.image}

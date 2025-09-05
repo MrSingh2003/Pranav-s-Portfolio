@@ -102,3 +102,7 @@
   opacity: 1;
   transform: scale(1);
 }
+
+.embla__slide.is-selected .project-card {
+  @apply shadow-2xl shadow-primary/40;
+}
