@@ -88,6 +88,16 @@
   transform: scale(1.05);
 }
 
+.project-grid:hover .project-card-wrapper .project-card {
+  @apply shadow-[inset_4px_4px_8px_hsl(var(--background-end)),inset_-4px_-4px_8px_hsl(var(--background-start))];
+  transform: scale(0.98);
+  opacity: 0.7;
+}
+.dark .project-grid:hover .project-card-wrapper .project-card {
+    @apply shadow-[inset_4px_4px_8px_#1a1a1f,inset_-4px_-4px_8px_#2e2e39];
+}
+
+
 .project-grid .project-card-wrapper:hover .project-card {
    @apply shadow-2xl shadow-primary/40;
    transform: scale(1.05);
