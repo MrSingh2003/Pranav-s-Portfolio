@@ -13,7 +13,7 @@ const projects = [
     image: "https://picsum.photos/602/400",
     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     liveHref: "#home",
-    codeHref: "https://github.com/MrSingh2003",
+    codeHref: "https://github.com/MrSingh2003/Pranav-s-Portfolio.git",
     aiHint: "portfolio website",
     isFeatured: true,
   },
