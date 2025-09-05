@@ -14,6 +14,15 @@ import {
 
 const projects = [
   {
+    title: "Pranav's Portfolio",
+    description: "My personal portfolio website built with Next.js and Tailwind CSS to showcase my skills, projects, and experience.",
+    image: "https://picsum.photos/602/400",
+    tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    liveHref: "#home",
+    codeHref: "https://github.com/MrSingh2003",
+    aiHint: "portfolio website"
+  },
+  {
     title: "Smart India Traveler",
     description: "An intelligent travel planning application that provides optimized itineraries and personalized recommendations using AI algorithms.",
     image: "https://picsum.photos/600/400",
@@ -31,15 +40,6 @@ const projects = [
     codeHref: "#",
     aiHint: "online store"
   },
-  {
-    title: "Pranav's Portfolio",
-    description: "My personal portfolio website built with Next.js and Tailwind CSS to showcase my skills, projects, and experience.",
-    image: "https://picsum.photos/602/400",
-    tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-    liveHref: "#home",
-    codeHref: "https://github.com/MrSingh2003",
-    aiHint: "portfolio website"
-  }
 ];
 
 export function Projects() {
@@ -50,11 +50,11 @@ export function Projects() {
           align: "center",
           loop: true,
         }}
-        className="w-full max-w-4xl mx-auto"
+        className="w-full max-w-5xl mx-auto"
       >
         <CarouselContent className="-ml-1">
           {projects.map((project, index) => (
-            <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={index} className="pl-1 sm:basis-1/2 md:basis-1/3 lg:basis-1/3">
                <div className="p-1">
                 <Card className="flex flex-col overflow-hidden h-full project-card">
                    <CardHeader className="p-0 relative h-60">
@@ -65,7 +65,7 @@ export function Projects() {
                       style={{objectFit: 'cover'}}
                       className="w-full"
                       data-ai-hint={project.aiHint}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
                     />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   </CardHeader>
@@ -95,8 +95,8 @@ export function Projects() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-[-50px]" />
-        <CarouselNext className="right-[-50px]" />
+        <CarouselPrevious className="left-[-50px] hidden sm:inline-flex" />
+        <CarouselNext className="right-[-50px] hidden sm:inline-flex" />
       </Carousel>
     </Section>
   );
