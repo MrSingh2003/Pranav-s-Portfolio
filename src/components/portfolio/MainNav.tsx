@@ -80,7 +80,8 @@ export function MainNav() {
                 <a href="mailto:pranavsingh703@gmail.com">Hire Me</a>
             </Button>
         </div>
-        <div className="md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
           <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
@@ -102,9 +103,6 @@ export function MainNav() {
              <Button asChild className="mt-4">
                 <a href="mailto:pranavsingh703@gmail.com">Hire Me</a>
             </Button>
-            <div className="flex justify-center pt-4">
-              <ThemeToggle />
-            </div>
           </nav>
         </div>
       )}
