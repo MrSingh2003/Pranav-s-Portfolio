@@ -106,3 +106,19 @@
 .embla__slide.is-selected .project-card {
   @apply shadow-2xl shadow-primary/40;
 }
+
+/* When the container is hovered, de-emphasize all slides */
+.embla__container:hover .embla__slide {
+  opacity: 0.3;
+}
+.embla__container:hover .embla__slide .project-card {
+  @apply shadow-none;
+}
+
+/* Re-emphasize the slide that is directly hovered */
+.embla__container:hover .embla__slide:hover {
+  opacity: 1;
+}
+.embla__container:hover .embla__slide:hover .project-card {
+  @apply shadow-2xl shadow-primary/40;
+}
