@@ -33,8 +33,8 @@ export function About() {
         {aboutPoints.map((point, index) => (
            <AnimatedSection delay={index * 150} key={point.title}>
               <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/50 transition-all duration-300 transform-gpu hover:-translate-y-2 hover:shadow-2xl md:hover:[transform:rotateX(10deg)_rotateY(-10deg)_scale(1.05)]">
-                <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                  <point.Icon className="h-8 w-8 md:h-10 md:w-10 text-primary" />
+                <CardHeader className="flex flex-row items-start gap-4 pb-2">
+                  <point.Icon className="h-8 w-8 md:h-10 md:w-10 text-primary flex-shrink-0" />
                   <CardTitle className="text-lg md:text-xl">{point.title}</CardTitle>
                 </CardHeader>
                 <CardContent>

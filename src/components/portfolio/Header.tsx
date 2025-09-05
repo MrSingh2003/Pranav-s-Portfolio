@@ -30,7 +30,7 @@ export function Header() {
   }
 
   return (
-    <section id="home" className="relative h-[90vh] min-h-[500px] flex items-center justify-center text-center overflow-hidden">
+    <section id="home" className="relative h-[90vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
           src={getBackgroundImage()}
@@ -50,9 +50,9 @@ export function Header() {
           <Image
             src="/pranav.jpg?v=3"
             alt="Pranav Singh"
-            width={150}
-            height={150}
-            className="rounded-full border-4 border-primary/50 shadow-lg"
+            width={120}
+            height={120}
+            className="rounded-full border-4 border-primary/50 shadow-lg sm:w-[150px] sm:h-[150px]"
             data-ai-hint="profile picture"
             priority
           />

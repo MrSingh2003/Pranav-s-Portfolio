@@ -18,7 +18,7 @@ export default function Home() {
       <MainNav />
       <main className="flex-1">
         <Header />
-        <div className="container mx-auto max-w-6xl px-4 py-16 sm:py-24">
+        <div className="container mx-auto max-w-6xl px-4 py-12 sm:py-16 md:py-24">
           <div className="grid gap-16 md:gap-24">
             <AnimatedSection animation="slide-in-from-left">
               <About />

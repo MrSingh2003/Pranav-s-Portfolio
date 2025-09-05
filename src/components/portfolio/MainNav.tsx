@@ -60,7 +60,7 @@ export function MainNav() {
           Pranav Singh
         </Link>
         {isClient && (
-          <div className="flex items-center gap-2">
+          <>
             <nav className="hidden md:flex items-center space-x-2">
               {navItems.map((item) => (
                 <Link
@@ -83,16 +83,16 @@ export function MainNav() {
                     <a href="mailto:pranavsingh703@gmail.com">Hire Me</a>
                 </Button>
             </div>
-          </div>
+            <div className="flex items-center gap-2 md:hidden">
+              <ThemeToggle />
+              <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
+          </>
         )}
-        <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
-          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
-        </div>
       </div>
-      {isMenuOpen && (
+      {isMenuOpen && isClient && (
         <div className="md:hidden bg-background border-t">
           <nav className="flex flex-col space-y-2 p-4">
             {navItems.map((item) => (
