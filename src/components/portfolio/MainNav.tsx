@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -19,13 +19,25 @@ const navItems = [
 export function MainNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [isClient, setIsClient] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     setIsClient(true);
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 20);
+
+      // Hide header on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+      lastScrollY.current = currentScrollY;
 
       const sections = navItems.map(item => {
         const el = document.querySelector(item.href);
@@ -43,7 +55,7 @@ export function MainNav() {
       setActiveSection(currentSection);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     
     return () => window.removeEventListener("scroll", handleScroll);
@@ -52,7 +64,8 @@ export function MainNav() {
   return (
     <header className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-lg border-b" : "bg-transparent"
+        isScrolled ? "bg-background/80 backdrop-blur-lg border-b" : "bg-transparent",
+        isHidden ? "-translate-y-full" : "translate-y-0"
       )}>
       <div className="container mx-auto flex h-20 max-w-6xl items-center justify-between px-4">
         <Link href="#home" className="flex items-center gap-2 text-xl font-bold text-foreground">
