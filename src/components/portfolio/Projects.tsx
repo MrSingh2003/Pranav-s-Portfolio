@@ -10,7 +10,7 @@ const projects = [
   {
     title: "Pranav's Portfolio",
     description: "My personal portfolio website built with Next.js and Tailwind CSS to showcase my skills, projects, and experience.",
-    image: "https://picsum.photos/602/400",
+    image: "/portfolio-preview.jpg",
     tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     liveHref: "https://pranav-s-portfolio.vercel.app/",
     codeHref: "https://github.com/MrSingh2003/Pranav-s-Portfolio.git",
@@ -20,7 +20,7 @@ const projects = [
   {
     title: "Smart India Traveler",
     description: "An intelligent travel planning application that provides optimized itineraries and personalized recommendations using AI algorithms.",
-    image: "https://picsum.photos/600/400",
+    image: "/smart-india-traveler.jpg",
     tags: ["AI/ML", "Java", "React", "Azure"],
     liveHref: "#",
     codeHref: "#",
@@ -29,7 +29,7 @@ const projects = [
   {
     title: "E-Commerce Web Application",
     description: "A full-featured e-commerce platform with capabilities for product management, user authentication, and a secure payment gateway.",
-    image: "https://picsum.photos/601/400",
+    image: "/ecommerce-app.jpg",
     tags: ["Full-Stack", "Spring Boot", "Next.js", "SQL"],
     liveHref: "#",
     codeHref: "#",
