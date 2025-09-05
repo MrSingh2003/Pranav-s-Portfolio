@@ -22,12 +22,12 @@ const education = [
 export function Education() {
   return (
     <Section id="education" title="Education" Icon={GraduationCap}>
-       <div className="relative border-l-2 border-primary/20 pl-8 space-y-10">
+       <div className="relative border-l-2 border-primary/20 ml-4 md:ml-0 pl-6 md:pl-8 space-y-10">
         {education.map((edu, index) => (
           <div key={index} className="relative">
-            <div className="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-primary ring-8 ring-background" />
+            <div className="absolute -left-[35px] md:-left-[42px] top-1.5 h-4 w-4 rounded-full bg-primary ring-8 ring-background" />
             <p className="text-sm font-medium text-primary">{edu.period}</p>
-            <h3 className="mt-1 text-xl font-semibold text-foreground">{edu.institution}</h3>
+            <h3 className="mt-1 text-lg md:text-xl font-semibold text-foreground">{edu.institution}</h3>
             <p className="text-md text-muted-foreground">{edu.degree}</p>
           </div>
         ))}

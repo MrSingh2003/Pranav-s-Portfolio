@@ -29,16 +29,16 @@ const aboutPoints = [
 export function About() {
   return (
     <Section id="about" title="About Me" Icon={User}>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         {aboutPoints.map((point, index) => (
            <AnimatedSection delay={index * 150} key={point.title}>
-              <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/50 transition-all duration-300 transform-gpu hover:-translate-y-2 hover:shadow-2xl hover:[transform:rotateX(10deg)_rotateY(-10deg)_scale(1.05)]">
+              <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/50 transition-all duration-300 transform-gpu hover:-translate-y-2 hover:shadow-2xl md:hover:[transform:rotateX(10deg)_rotateY(-10deg)_scale(1.05)]">
                 <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                  <point.Icon className="h-10 w-10 text-primary" />
-                  <CardTitle className="text-xl">{point.title}</CardTitle>
+                  <point.Icon className="h-8 w-8 md:h-10 md:w-10 text-primary" />
+                  <CardTitle className="text-lg md:text-xl">{point.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{point.description}</p>
+                  <p className="text-muted-foreground text-sm md:text-base">{point.description}</p>
                 </CardContent>
               </Card>
           </AnimatedSection>
