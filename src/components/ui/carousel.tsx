@@ -163,7 +163,6 @@ const CarouselContent = React.forwardRef<
       // Accessing private/undocumented properties, might break
       const engine = (api.internalEngine)();
       engine.scrollBody.useFriction(0.3); // Less friction, feels "looser"
-      engine.scrollBody.useMass(1);
     };
     
     api.on("scroll", onScroll);
@@ -212,10 +211,12 @@ const CarouselItem = React.forwardRef<
 
   React.useEffect(() => {
     if (!api) return;
-    api.on("select", updateSelection);
     updateSelection(); // initial check
+    api.on("select", updateSelection);
+    api.on("reInit", updateSelection);
     return () => {
       api.off("select", updateSelection);
+      api.off("reInit", updateSelection);
     }
   }, [api, updateSelection]);
 
