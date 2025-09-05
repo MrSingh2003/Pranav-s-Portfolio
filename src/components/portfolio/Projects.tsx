@@ -23,6 +23,15 @@ const projects = [
     liveHref: "#",
     codeHref: "#",
     aiHint: "online store"
+  },
+  {
+    title: "Pranav's Portfolio",
+    description: "My personal portfolio website built with Next.js and Tailwind CSS to showcase my skills, projects, and experience.",
+    image: "https://picsum.photos/602/400",
+    tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    liveHref: "#home",
+    codeHref: "https://github.com/MrSingh2003",
+    aiHint: "portfolio website"
   }
 ];
 
