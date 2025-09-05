@@ -50,8 +50,8 @@ export function Header() {
           <Image
             src="/pranav.jpg"
             alt="Pranav Singh"
-            width={120}
-            height={120}
+            width={150}
+            height={150}
             className="rounded-full border-4 border-primary/50 shadow-lg w-[120px] h-[120px] sm:w-[150px] sm:h-[150px]"
             data-ai-hint="profile picture"
             priority
