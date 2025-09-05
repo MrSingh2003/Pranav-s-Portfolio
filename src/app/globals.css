@@ -90,7 +90,7 @@
 
 .project-card-wrapper.is-featured .project-card {
   @apply shadow-2xl shadow-primary/40;
-  transform: scale(1.05) rotateY(0deg) rotateX(0deg);
+  transform: scale(1.05);
 }
 
 .project-grid:hover .project-card-wrapper .project-card {
@@ -105,6 +105,6 @@
 
 .project-grid .project-card-wrapper:hover .project-card {
    @apply shadow-2xl shadow-primary/60;
-   transform: scale(1.1) rotateY(15deg) rotateX(5deg);
+   transform: scale(1.1);
    opacity: 1;
 }
