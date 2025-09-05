@@ -10,6 +10,7 @@ import { Projects } from "@/components/portfolio/Projects";
 import { Skills } from "@/components/portfolio/Skills";
 import { Contact } from "@/components/portfolio/Contact";
 import { Separator } from "@/components/ui/separator";
+import { ClientOnly } from "@/components/client-only";
 
 export default function Home() {
   return (
@@ -39,7 +40,9 @@ export default function Home() {
             </AnimatedSection>
             <Separator />
             <AnimatedSection animation="fade-in-up">
+              <ClientOnly>
                 <Contact />
+              </ClientOnly>
             </AnimatedSection>
           </div>
         </div>
