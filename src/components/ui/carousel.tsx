@@ -198,17 +198,17 @@ const CarouselItem = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const { api } = useCarousel()
   const [isSelected, setIsSelected] = React.useState(false);
+  const internalRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
 
   const updateSelection = React.useCallback(() => {
-     if (!api) return;
-     // This seems brittle. CarouselItem doesn't have an index prop.
-     // We need to find the DOM element and get its index.
+     if (!api || !internalRef.current) return;
      const slideNodes = api.slideNodes();
-     const selfNode = (ref as React.RefObject<HTMLDivElement>).current;
-     if (!selfNode) return;
+     const selfNode = internalRef.current;
      const myIndex = slideNodes.indexOf(selfNode);
      setIsSelected(api.selectedScrollSnap() === myIndex);
-  }, [api, ref]);
+  }, [api]);
 
   React.useEffect(() => {
     if (!api) return;
@@ -222,7 +222,7 @@ const CarouselItem = React.forwardRef<
 
   return (
     <div
-      ref={ref}
+      ref={internalRef}
       role="group"
       aria-roledescription="slide"
       className={cn(
