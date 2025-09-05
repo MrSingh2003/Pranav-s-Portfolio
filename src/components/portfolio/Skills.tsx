@@ -4,7 +4,7 @@ import { Wrench } from "lucide-react";
 import { Section } from "./Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const skillsData = {
   "Languages": [
@@ -40,14 +40,33 @@ const skillsData = {
 
 function SkillCategory({ category, skills }: { category: string, skills: {name: string, level: number}[] }) {
     const [progress, setProgress] = useState(0);
+    const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const timer = setTimeout(() => setProgress(100), 500);
-        return () => clearTimeout(timer);
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    const timer = setTimeout(() => setProgress(100), 100);
+                    observer.unobserve(entry.target);
+                    return () => clearTimeout(timer);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => {
+            if (ref.current) {
+                observer.unobserve(ref.current);
+            }
+        };
     }, []);
 
     return (
-        <Card className="bg-card/50 backdrop-blur-sm">
+        <Card ref={ref} className="bg-card/50 backdrop-blur-sm">
             <CardHeader>
                 <CardTitle className="text-xl">{category}</CardTitle>
             </CardHeader>
