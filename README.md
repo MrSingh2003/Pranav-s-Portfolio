@@ -39,4 +39,4 @@ To get started and run this project on your local machine:
     npm run dev
     ```
 
-The application will be available at `http://localhost:9002`.
+The application will be available at `http://pranav-s-portfolio.vercel.app/`.
