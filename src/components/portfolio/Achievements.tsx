@@ -3,10 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Section } from "./Section";
 
 const achievements = [
-  "Deloitte Australia - Technology Virtual Job Simulation",
-  "Microsoft Certified: Azure AI Vision Specialist",
-  "Solved 500+ problems on LeetCode & GeeksforGeeks",
-  "Smart India Hackathon 2023 Finalist"
+  "Deloitte Australia Technology Virtual Completion Certificate",
+  "Microsoft Certified Azure AI Vision Specialist",
+  "Solved 300+ problems on LeetCode",
+  "HackerRank Certified in Problem Solving ",
+  "Winner Toonav Ideathon(College Event)",
+  "Smart India Hackathon 2023 Finalist",
+  "AWS Solutions Architecture Completion Certificate",
 ];
 
 export function Achievements() {
