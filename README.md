@@ -17,6 +17,7 @@ This is a dynamic and interactive personal portfolio built with Next.js, React, 
 - **Component-Based Architecture:** Built with reusable React components for clean, scalable, and maintainable code.
 - **Light & Dark Mode:** A theme toggle allows users to switch between light and dark themes based on their preference.
 - **Performance Optimized:** Leverages Next.js features like Server Components and image optimization for fast load times.
+- **Code Protection:** Implemented basic deterrents to prevent easy access to the source code from the browser.
 
 ## Running Locally
 
